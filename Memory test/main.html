@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Memory test</title>
+    
+    <script defer="true" src="clockTimer.js"></script>
+    <script defer="true" type="module" src="update.js"></script>
+
+    <style>
+      body{
+        background-color: rgba(1, 6, 8, 1);
+        caret-color: transparent;
+
+        cursor: default;
+      }
+
+      #timer{
+        position: absolute;
+        width: 550px;
+
+        margin-top: 9%;
+        margin-left: 17%;
+
+        color: white;
+        font-size: 100px;
+        font-family: 'Courier New', Courier, monospace;
+        letter-spacing: -10px;
+
+        text-align: right;
+      }
+
+      #periodicTable{
+        margin: auto;
+        padding-top: 50px;
+        empty-cells: hide;
+      }
+
+      .elementBlock{
+        width: 50px;
+        height: 50px;
+
+        /* Text */
+        font-size: 25px;
+        text-align: center;
+
+        /* Border */
+        border-radius: 10px;
+        border: 2px solid black;
+
+        cursor: default;
+        text-transform: capitalize;
+      }
+
+      #blankRow{
+        height: 25px;
+      }
+
+      ::selection{
+        background-color: transparent;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="timer">0.00</div>
+    <table id="periodicTable">
+      <tr>
+        <td><input id="h" class="H elementBlock" type="text"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input id="he" class="Ng elementBlock" type="text"></td>
+      </tr>
+
+      <tr>
+        <td><input id="li" class="Rm elementBlock" type="text"></td>
+        <td><input id="be" class="Rm elementBlock" type="text"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input id="b" class="Ml elementBlock" type="text"></td>
+        <td><input id="c" class="Nm elementBlock" type="text"></td>
+        <td><input id="n" class="Nm elementBlock" type="text"></td>
+        <td><input id="o" class="Nm elementBlock" type="text"></td>
+        <td><input id="f" class="Nm elementBlock" type="text"></td>
+        <td><input id="ne" class="Ng elementBlock" type="text"></td>
+      </tr>
+
+      <tr>
+        <td><input id="na" class="Rm elementBlock" type="text"></td>
+        <td><input id="mg" class="Rm elementBlock" type="text"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input id="al" class="Rm elementBlock" type="text"></td>
+        <td><input id="si" class="Ml elementBlock" type="text"></td>
+        <td><input id="p" class="Nm elementBlock" type="text"></td>
+        <td><input id="s" class="Nm elementBlock" type="text"></td>
+        <td><input id="cl" class="Nm elementBlock" type="text"></td>
+        <td><input id="ar" class="Ng elementBlock" type="text"></td>
+      </tr>
+
+      <tr>
+        <td><input id="k" class="Rm elementBlock" type="text"></td>
+        <td><input id="ca" class="Rm elementBlock" type="text"></td>
+        <td><input id="sc" class="Tm elementBlock" type="text"></td>
+        <td><input id="ti" class="Tm elementBlock" type="text"></td>
+        <td><input id="v" class="Tm elementBlock" type="text"></td>
+        <td><input id="cr" class="Tm elementBlock" type="text"></td>
+        <td><input id="mn" class="Tm elementBlock" type="text"></td>
+        <td><input id="fe" class="Tm elementBlock" type="text"></td>
+        <td><input id="co" class="Tm elementBlock" type="text"></td>
+        <td><input id="ni" class="Tm elementBlock" type="text"></td>
+        <td><input id="cu" class="Tm elementBlock" type="text"></td>
+        <td><input id="zn" class="Tm elementBlock" type="text"></td>
+        <td><input id="ga" class="Rm elementBlock" type="text"></td>
+        <td><input id="ge" class="Ml elementBlock" type="text"></td>
+        <td><input id="as" class="Ml elementBlock" type="text"></td>
+        <td><input id="se" class="Nm elementBlock" type="text"></td>
+        <td><input id="br" class="Nm elementBlock" type="text"></td>
+        <td><input id="kr" class="Ng elementBlock" type="text"></td>
+      </tr>
+
+      <tr>
+        <td><input id="rb" class="Rm elementBlock" type="text"></td>
+        <td><input id="sr" class="Rm elementBlock" type="text"></td>
+        <td><input id="y" class="Tm elementBlock" type="text"></td>
+        <td><input id="zr" class="Tm elementBlock" type="text"></td>
+        <td><input id="nb" class="Tm elementBlock" type="text"></td>
+        <td><input id="mo" class="Tm elementBlock" type="text"></td>
+        <td><input id="tc" class="Tm elementBlock" type="text"></td>
+        <td><input id="ru" class="Tm elementBlock" type="text"></td>
+        <td><input id="rh" class="Tm elementBlock" type="text"></td>
+        <td><input id="pd" class="Tm elementBlock" type="text"></td>
+        <td><input id="ag" class="Tm elementBlock" type="text"></td>
+        <td><input id="cd" class="Tm elementBlock" type="text"></td>
+        <td><input id="in" class="Rm elementBlock" type="text"></td>
+        <td><input id="sn" class="Rm elementBlock" type="text"></td>
+        <td><input id="sb" class="Ml elementBlock" type="text"></td>
+        <td><input id="te" class="Ml elementBlock" type="text"></td>
+        <td><input id="i" class="Nm elementBlock" type="text"></td>
+        <td><input id="xe" class="Ng elementBlock" type="text"></td>
+      </tr>
+
+      <tr>
+        <td><input id="cs" class="Rm elementBlock" type="text"></td>
+        <td><input id="ba" class="Rm elementBlock" type="text"></td>
+        <td><input id="la" class="Tm elementBlock" type="text"></td>
+        <td><input id="hf" class="Tm elementBlock" type="text"></td>
+        <td><input id="ta" class="Tm elementBlock" type="text"></td>
+        <td><input id="w" class="Tm elementBlock" type="text"></td>
+        <td><input id="re" class="Tm elementBlock" type="text"></td>
+        <td><input id="os" class="Tm elementBlock" type="text"></td>
+        <td><input id="ir" class="Tm elementBlock" type="text"></td>
+        <td><input id="pt" class="Tm elementBlock" type="text"></td>
+        <td><input id="au" class="Tm elementBlock" type="text"></td>
+        <td><input id="hg" class="Tm elementBlock" type="text"></td>
+        <td><input id="tl" class="Rm elementBlock" type="text"></td>
+        <td><input id="pb" class="Rm elementBlock" type="text"></td>
+        <td><input id="bi" class="Rm elementBlock" type="text"></td>
+        <td><input id="po" class="Rm elementBlock" type="text"></td>
+        <td><input id="at" class="Nm elementBlock" type="text"></td>
+        <td><input id="rn" class="Ng elementBlock" type="text"></td>
+      </tr>
+
+      <tr>
+        <td><input id="fr" class="Rm elementBlock" type="text"></td>
+        <td><input id="ra" class="Rm elementBlock" type="text"></td>
+        <td><input id="ac" class="Tm elementBlock" type="text"></td>
+        <td><input id="rf" class="Tm elementBlock" type="text"></td>
+        <td><input id="db" class="Tm elementBlock" type="text"></td>
+        <td><input id="sg" class="Tm elementBlock" type="text"></td>
+        <td><input id="bh" class="Tm elementBlock" type="text"></td>
+        <td><input id="hs" class="Tm elementBlock" type="text"></td>
+        <td><input id="mt" class="Tm elementBlock" type="text"></td>
+        <td><input id="ds" class="Tm elementBlock" type="text"></td>
+        <td><input id="rg" class="Tm elementBlock" type="text"></td>
+        <td><input id="cn" class="Tm elementBlock" type="text"></td>
+        <td><input id="nh" class="Rm elementBlock" type="text"></td>
+        <td><input id="fl" class="Rm elementBlock" type="text"></td>
+        <td><input id="mc" class="Rm elementBlock" type="text"></td>
+        <td><input id="lv" class="Rm elementBlock" type="text"></td>
+        <td><input id="ts" class="Rm elementBlock" type="text"></td>
+        <td><input id="og" class="Rm elementBlock" type="text"></td>
+      </tr>
+
+      <tr id="blankRow"></tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input id="ce" class="Itm elementBlock" type="text"></td>
+        <td><input id="pr" class="Itm elementBlock" type="text"></td>
+        <td><input id="nd" class="Itm elementBlock" type="text"></td>
+        <td><input id="pm" class="Itm elementBlock" type="text"></td>
+        <td><input id="sm" class="Itm elementBlock" type="text"></td>
+        <td><input id="eu" class="Itm elementBlock" type="text"></td>
+        <td><input id="gd" class="Itm elementBlock" type="text"></td>
+        <td><input id="tb" class="Itm elementBlock" type="text"></td>
+        <td><input id="dy" class="Itm elementBlock" type="text"></td>
+        <td><input id="ho" class="Itm elementBlock" type="text"></td>
+        <td><input id="er" class="Itm elementBlock" type="text"></td>
+        <td><input id="tm" class="Itm elementBlock" type="text"></td>
+        <td><input id="yb" class="Itm elementBlock" type="text"></td>
+        <td><input id="lu" class="Itm elementBlock" type="text"></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input id="th" class="Itm elementBlock" type="text"></td>
+        <td><input id="pa" class="Itm elementBlock" type="text"></td>
+        <td><input id="u" class="Itm elementBlock" type="text"></td>
+        <td><input id="np" class="Itm elementBlock" type="text"></td>
+        <td><input id="pu" class="Itm elementBlock" type="text"></td>
+        <td><input id="am" class="Itm elementBlock" type="text"></td>
+        <td><input id="cm" class="Itm elementBlock" type="text"></td>
+        <td><input id="bk" class="Itm elementBlock" type="text"></td>
+        <td><input id="cf" class="Itm elementBlock" type="text"></td>
+        <td><input id="es" class="Itm elementBlock" type="text"></td>
+        <td><input id="fm" class="Itm elementBlock" type="text"></td>
+        <td><input id="md" class="Itm elementBlock" type="text"></td>
+        <td><input id="no" class="Itm elementBlock" type="text"></td>
+        <td><input id="lr" class="Itm elementBlock" type="text"></td>
+      </tr>
+    </table>
+  </body>
+</html>
