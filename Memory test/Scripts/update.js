@@ -22,23 +22,30 @@ const Itm_color = "rgb(225, 186, 208)";
 
 const colors = [H_color, Rm_color, Ml_color, Nm_color, Ng_color, Tm_color, Itm_color];
 
+let debounce = function(func, delay){
+  let timeoutId;
+
+  return function(arg){
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {func.call(this, arg);}, delay);
+  }
+}
+
 let movement = function(e){
   let cIndex = this.parentNode.cellIndex;
   let rIndex = this.parentNode.parentNode.rowIndex;
   if(e.keyCode === 37){// LEFT key
-    left(this, cIndex, rIndex);
+    left(cIndex, rIndex);
   }
   else if(e.keyCode === 38){// UP key
-    up(this, cIndex, rIndex);
+    up(cIndex, rIndex);
   }
   else if(e.keyCode === 39){// RIGHT key
-    right(this, cIndex, rIndex);
+    right(cIndex, rIndex);
   }
   else if(e.keyCode === 40){// DOWN key
-    down(this, cIndex, rIndex);
+    down(cIndex, rIndex);
   }
-
-  console.log(this.readonly)
 }
 
 var checkingSet = new Set();
@@ -68,8 +75,6 @@ let check = function(){
         this.style.backgroundColor = H_color;
         break;
     }
-
-    this.readonly = true;
 
     checkingSet.add(this.id);
     if(checkingSet.size === 118){timer()();}
@@ -102,7 +107,7 @@ let onFsout = function(){
 
 let elementBlocks = document.getElementsByClassName("elementBlock");
 Array.from(elementBlocks).forEach(function(i){
-  i.addEventListener("keydown", movement);
+  i.addEventListener("keydown", debounce(movement, 1));
   i.addEventListener("input", check);
   i.addEventListener("focus", onFs);
   i.addEventListener("focusout", onFsout);
