@@ -13,7 +13,7 @@ elements = ['H','He','Li','Be','B','C','N','O','F','Ne',
            'Nh', 'Fl', 'Mc', 'Lv', 'Ts', 'Og', 'Ce', 'Pr', 'Nd', 'Pm',
            'Sm', 'Eu', 'Gd', 'Tb', 'Dy', 'Ho', 'Er', 'Tm',
            'Yb', 'Lu', 'Th', 'Pa', 'U', 'Np', 'Pu', 'Am',
-           'Cm', 'Bk', 'Cf', 'Es', 'Fm', 'Md', 'No'] # Lr
+           'Cm', 'Bk', 'Cf', 'Es', 'Fm', 'Md', 'No', 'Lr']
 
 pag.sleep(10)
 for i in elements:
