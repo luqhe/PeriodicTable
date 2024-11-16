@@ -10,10 +10,33 @@
     
     <script defer="true" src="./Scripts/clockTimer.js"></script>
     <script defer="true" type="module" src="./Scripts/update.js"></script>
+    <script>
+      function toggleMenu(i){
+        state = i.dataset.state;
+        if(state === "0"){
+          document.getElementById("sideMenu").style.width = "250px";
+          
+          i.style.left = "175px";
+          i.style.rotate = "90deg";
+
+          i.dataset.state = 1;
+        }
+        else{
+          document.getElementById("sideMenu").style.width = "0px";
+          
+          i.style.left = "30px";
+          i.style.rotate = "0deg";
+
+          i.dataset.state = 0;
+        }
+      }
+    </script>
+
+    <link rel="stylesheet" href="sideMenu.css">
 
     <style>
       body{
-        background-color: rgba(1, 6, 8, 1);
+        background-color: rgb(6,12,20);
         caret-color: transparent;
 
         cursor: default;
@@ -26,7 +49,7 @@
         margin-top: 5%;
         margin-left: 17%;
 
-        color: white;
+        color: #d6d1cc;
         font-size: 100px;
         font-family: 'Courier New', Courier, monospace;
         letter-spacing: -10px;
@@ -43,13 +66,15 @@
         width: 50px;
         height: 50px;
 
+        background-color: #d6d1cc;
+
         /* Text */
         font-size: 25px;
         text-align: center;
 
         /* Border */
         border-radius: 10px;
-        border: 2px solid black;
+        border: 2px solid #04080e;
 
         cursor: default;
         text-transform: capitalize;
@@ -66,6 +91,13 @@
   </head>
 
   <body>
+    <div id="sideMenu">
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Buy me a cookie</a>
+    </div>
+    <span id="sideMenu_toggle" data-state="0" onclick="toggleMenu(this);">&#9776</span>
+    
     <div id="timer">0.00</div>
     <table id="periodicTable">
       <tr>

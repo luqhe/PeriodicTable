@@ -1,0 +1,44 @@
+#sideMenu{
+  height: 100%;
+  width: 0%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #17203a;
+
+  overflow-x: hidden;
+  padding-top: 7.5%;
+
+  transition: 0.5s;
+}
+
+#sideMenu a{
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #e6e2df;
+  display: block;
+  white-space: nowrap;
+
+  transition: 0.3s;
+}
+
+#sideMenu a:hover{
+  color: #5d6375;
+}
+
+#sideMenu_toggle{
+  position: absolute;
+
+  top: 6%;
+  left: 30px;
+
+  z-index: 2;
+
+  color: #d6d1cc;
+  font-size: 50px;
+
+  transition: 0.5s;
+  cursor: pointer;
+}
