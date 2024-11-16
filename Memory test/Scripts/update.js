@@ -17,7 +17,7 @@ const Rm_color = "rgb(255, 224, 107)";
 const Ml_color = "rgb(135, 214, 184)";
 const Nm_color = "rgb(228, 202, 178)";
 const Ng_color = "rgb(255, 186, 146)";
-const Tm_color = "rgb(209, 211, 212)";
+const Tm_color = "rgb(122, 118, 115)";
 const Itm_color = "rgb(225, 186, 208)";
 
 const colors = [H_color, Rm_color, Ml_color, Nm_color, Ng_color, Tm_color, Itm_color];
@@ -107,6 +107,8 @@ let onFsout = function(){
 
 let elementBlocks = document.getElementsByClassName("elementBlock");
 Array.from(elementBlocks).forEach(function(i){
+  i.setAttribute("autocomplete", "off")
+
   i.addEventListener("keydown", debounce(movement, 1));
   i.addEventListener("input", check);
   i.addEventListener("focus", onFs);
