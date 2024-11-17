@@ -16,7 +16,7 @@
 #sideMenu a{
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 1.5625em;
   color: #e6e2df;
   display: block;
   white-space: nowrap;
@@ -31,13 +31,13 @@
 #sideMenu_toggle{
   position: absolute;
 
-  top: 6%;
-  left: 30px;
+  top: 6vh;
+  left: 2.2vw;
 
   z-index: 2;
 
   color: #d6d1cc;
-  font-size: 50px;
+  font-size: 7vh;
 
   transition: 0.5s;
   cursor: pointer;

@@ -14,17 +14,17 @@
       function toggleMenu(i){
         state = i.dataset.state;
         if(state === "0"){
-          document.getElementById("sideMenu").style.width = "250px";
+          document.getElementById("sideMenu").style.width = "18.3vw";
           
-          i.style.left = "175px";
+          i.style.left = "12vw";
           i.style.rotate = "90deg";
 
           i.dataset.state = 1;
         }
         else{
-          document.getElementById("sideMenu").style.width = "0px";
+          document.getElementById("sideMenu").style.width = "0vw";
           
-          i.style.left = "30px";
+          i.style.left = "2.2vw";
           i.style.rotate = "0deg";
 
           i.dataset.state = 0;
@@ -42,46 +42,59 @@
         cursor: default;
       }
 
+      #languageSwitch{
+        padding: 8px 8px 8px 32px;
+
+        background-color: aqua;
+      }
+
       #timer{
         position: absolute;
-        width: 550px;
+        width: 40.2vw;
 
-        margin-top: 5%;
-        margin-left: 17%;
+        bottom: 65vh;
+        left: 20vw;
 
         color: #d6d1cc;
-        font-size: 100px;
+        font-size: 16vh;
         font-family: 'Courier New', Courier, monospace;
-        letter-spacing: -10px;
+        letter-spacing: -0.1em;
 
         text-align: right;
       }
 
       #periodicTable{
-        margin: 3.5% auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
         empty-cells: hide;
       }
 
       .elementBlock{
-        width: 50px;
-        height: 50px;
+        width: 3.75vw;
+        height: 3.75vw;
+        /* width: 3.125rem;
+        height: 3.125rem; */
 
         background-color: #d6d1cc;
 
         /* Text */
-        font-size: 25px;
+        font-size: 1.5625em;
         text-align: center;
 
         /* Border */
-        border-radius: 10px;
-        border: 2px solid #04080e;
+        border-radius: 0.4em;
+        border: 0.08em solid #04080e;
 
         cursor: default;
         text-transform: capitalize;
       }
 
       #blankRow{
-        height: 25px;
+        height: 1.5625em;
       }
 
       ::selection{
@@ -93,8 +106,12 @@
   <body>
     <div id="sideMenu">
       <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#">Memory game</a>
       <a href="#">Buy me a cookie</a>
+
+      <label id="languageSwitch">
+        <input type="checkbox">
+      </label>
     </div>
     <span id="sideMenu_toggle" data-state="0" onclick="toggleMenu(this);">&#9776</span>
     
